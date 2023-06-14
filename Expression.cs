@@ -294,12 +294,12 @@ namespace Laba1_Token_
                     {
                         string operation = ")";
 
-                        if((priority[operation] > priorityStack.Peek()) || stackOfOperations.Count() == 0)
+                        if((priority[operation] > priorityStack.Peek()))
                         {
                             stackOfOperations.Push(logicExpressionStack[index].Value);
                             priorityStack.Push(priority[operation]);
                         }
-                        else
+                        else if(priority[operation] > priorityStack.Peek() && stackOfOperations.Count() == 0)
                         {
                             PushesOutOperationsHighestPriority(operation);
                             stackOfOperations.Pop();
